@@ -5,13 +5,14 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import org.springframework.core.convert.converter.Converter;
+import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Component;
 
 @Component
 public class StringToDateConverter implements Converter<String, Date> {
 
     @Override
-    public Date convert(String stringDate) {
+    public Date convert(@NonNull String stringDate) {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyyMMdd");
         try {
             return simpleDateFormat.parse(stringDate);

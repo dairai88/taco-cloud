@@ -27,7 +27,7 @@ public class IngredientClient {
 		final String url = "http://localhost:8080/data-api/ingredients/{id}";
 		Map<String, String> urlVariables = new HashMap<>();
 		urlVariables.put("id", ingredientId);
-		URI httpUrl = UriComponentsBuilder.fromHttpUrl(url).build(urlVariables);
+		URI httpUrl = UriComponentsBuilder.fromUriString(url).build(urlVariables);
 
 		Ingredient ingredient = rest.getForObject(httpUrl, Ingredient.class);
 		log.info("ingredient: " + ingredient);
@@ -39,7 +39,7 @@ public class IngredientClient {
 		final String url = "http://localhost:8080/data-api/ingredients/{id}";
 		Map<String, String> urlVariables = new HashMap<>();
 		urlVariables.put("id", ingredientId);
-		URI httpUrl = UriComponentsBuilder.fromHttpUrl(url).build(urlVariables);
+		URI httpUrl = UriComponentsBuilder.fromUriString(url).build(urlVariables);
 
 		ResponseEntity<Ingredient> responseEntity = rest.getForEntity(httpUrl, Ingredient.class);
 		log.info("Fetched time: {}", responseEntity.getHeaders().getDate());

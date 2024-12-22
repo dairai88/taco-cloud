@@ -58,8 +58,8 @@ public record OrderController(OrderRepository orderRepository, OrderMessagingSer
         LOG.info("process order, order user {}", user);
         order.setUser(user);
 
-        LOG.info("send order message to queue");
-        orderMessagingService.sendOrder(order);
+        // LOG.info("send order message to queue");
+        // orderMessagingService.sendOrder(order);
         
         orderRepository.save(order);
 
