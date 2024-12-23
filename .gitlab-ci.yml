@@ -10,9 +10,8 @@ stages:
 
 # Cache to speed up builds
 cache:
-  key: "$CI_PROJECT_NAME"
   paths:
-    - .m2/repository
+    - $CI_PROJECT_DIR/.m2/repository
 
 # Build Stage
 build:
