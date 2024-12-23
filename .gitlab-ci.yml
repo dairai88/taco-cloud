@@ -29,8 +29,23 @@ test:
   only:
     - main
 
-deploy-prod:
+# Package Stage
+package:
+  stage: package
+  script:
+    - mvn package -DskipTests
+    - ls target/*.jar
+  artifacts:
+    paths:
+      - target/*.jar
+  only:
+    - main
+
+# Deploy Stage
+deploy:
   stage: deploy
   script:
-    - echo "This job deploys something from the $CI_COMMIT_BRANCH branch"
-  environment: production
+    - echo "Deploying application..."
+    # Add your deployment commands here
+  only:
+    - main
