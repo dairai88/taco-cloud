@@ -1,35 +1,23 @@
-version: '3'
-
 services:
-  db:
-    image: mariadb:latest
-    restart: always
-    container_name: mariadb-db
-    environment:
-      - MARIADB_ROOT_PASSWORD=oarnud9I
-    ports:
-      - 3306:3306
-    volumes:
-      - mariadb:/var/lib/mysql
 
   postgres-db:
     image: postgres:15
-    restart: always
+    container_name: taco-cloud-db
+    restart: on-failure
     environment:
       - POSTGRES_USER=tacouser
       - POSTGRES_PASSWORD=tacopassword
       - POSTGRES_DB=tacocloud
     ports:
-      - 5432:5432
+      - "5432:5432"
     volumes:
       - postgres-db:/var/lib/postgresql/data
 
   adminer:
     image: adminer
-    restart: always
+    restart: on-failure
     ports:
-      - 3000:8080
+      - "3000:8080"
 
 volumes:
-  mariadb:
   postgres-db:

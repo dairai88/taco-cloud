@@ -20,7 +20,7 @@ public class TacoCloudApplication {
 	}
 
     @Bean
-    @Profile("!prod")
+    // @Profile("!prod")
     CommandLineRunner dataLoader(IngredientRepository repository) {
         log.info("dataLoader bean is created.");
         return args -> {
