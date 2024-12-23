@@ -1,6 +1,13 @@
 # Specify the Docker image for this build environment
 image: maven:3.9.9-eclipse-temurin-21
 
+# Define the stages in the pipeline
+stages:
+  - build
+  - test
+  - package
+  - deploy
+
 build-job:
   stage: build
   script:
