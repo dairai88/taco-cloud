@@ -11,13 +11,13 @@ stages:
 # Cache to speed up builds
 cache:
   paths:
-    - $HOME/.m2/repository
+    - .m2/repository
 
 # Build Stage
 build:
   stage: build
   script:
-    - mvn compile -Dmaven.repo.local=$HOME/.m2/repository
+    - mvn compile
   only:
     - main
 
@@ -25,7 +25,7 @@ build:
 test:
   stage: test
   script:
-    - mvn test -Dmaven.repo.local=$HOME/.m2/repository
+    - mvn test -Dmaven.repo.local=.m2/repository
   only:
     - main
 
@@ -33,7 +33,7 @@ test:
 package:
   stage: package
   script:
-    - mvn package -DskipTests -Dmaven.repo.local=$HOME/.m2/repository
+    - mvn package -DskipTests -Dmaven.repo.local=.m2/repository
     - ls target/*.jar
   artifacts:
     paths:
