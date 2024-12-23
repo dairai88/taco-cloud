@@ -1,3 +1,6 @@
+# Specify the Docker image for this build environment
+image: maven:3.9.9-eclipse-temurin-21
+
 build-job:
   stage: build
   script:
