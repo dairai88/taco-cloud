@@ -8,6 +8,19 @@ stages:
   - package
   - deploy
 
+# Cache to speed up builds
+cache:
+  paths:
+    - .m2/repository
+
+# Build Stage
+build:
+  stage: build
+  script:
+    - mvn compile
+  only:
+    - main
+
 build-job:
   stage: build
   script:
