@@ -1,16 +1,15 @@
 image: maven:3.9.9-eclipse-temurin-21
 
-# Define the stages in the pipeline
 stages:
   - build
   - test
   - package
   - deploy
 
-cache:
-  key: ${CI_COMMIT_REF_SLUG}
-  paths:
-    - .m2/repository
+# cache:
+#   key: ${CI_COMMIT_REF_SLUG}
+#   paths:
+#     - .m2/repository
 
 # Build Stage
 build:
